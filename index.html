@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Entropy Analyser</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fixed Theme Switch - Top Right of Page -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="switch-slider"></span>
+            <span class="switch-label">Night</span>
+        </label>
+    </div>
+
+    <div class="container">
+        <h1>Password Entropy Analyser</h1>
+        <p>Enter a password to see its strength, charset breakdown, and estimated crack time with cosmic-scale comparisons. All local—no data sent anywhere.</p>
+        
+        <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Enter your password..." autofocus>
+            <button type="button" id="toggle-password" title="Show/Hide Password">👁️</button>
+        </div>
+        <br>
+        
+        <button id="calculate-btn">Analyze</button>
+        
+        <div id="result" style="display: none;">
+            <h3>Results:</h3>
+            <p><strong>Length:</strong> <span id="length"></span></p>
+            <p><strong>Sets:</strong> Lower (<span id="lowercase"></span>), Upper (<span id="uppercase"></span>), Digits (<span id="digits"></span>), Symbols (<span id="symbols"></span>)</p>
+            <p><strong>Charset Size:</strong> <span id="charset"></span></p>
+            <p><strong>Entropy:</strong> <span id="entropy"></span> bits</p>
+            <p><strong>Strength:</strong> <span id="strength" class="strength weak"></span></p>
+            <p><strong>Est. Crack Time (GPU attack):</strong> <span id="crack-time"></span></p>
+            <ul id="suggestions">
+                <li>Mix all sets for higher charset.</li>
+                <li>Use 12+ chars or passphrases.</li>
+                <li>Avoid common words.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
